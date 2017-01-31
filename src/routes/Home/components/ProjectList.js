@@ -5,7 +5,7 @@ import Project from './Project'
 const ProjectList = function(props){
   return (
     <div className="projects">
-      {props.projects.map( (project) => (<Project key={project.name} name={project.name} />) )}
+      {props.projects.map( (project) => (<Project key={project.name} {...project} />) )}
     </div>
   )
 }
@@ -13,7 +13,10 @@ const ProjectList = function(props){
 ProjectList.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      url: PropTypes.string
     })
   ).isRequired
 }
